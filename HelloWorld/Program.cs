@@ -65,6 +65,9 @@ namespace HelloWorld
             Console.WriteLine(luca.Anagrafica());
             Console.WriteLine(giovanni.Anagrafica());
 
+            Person luigi = new Person("luigi", "bianchi", 180, 70.2);
+            Console.WriteLine(luigi.Anagrafica());
+
         }
     }
 }

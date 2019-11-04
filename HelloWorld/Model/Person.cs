@@ -25,9 +25,26 @@ namespace HelloWorld.Model
 
         public string Anagrafica()
         {
-            string anagrafica = this.nome + " " + this.cognome;
+            string anagrafica = this.nome + " " + this.cognome + " ha il BMI del valore: " + calculateBMI();
 
             return anagrafica;
+        }
+        public Person(string name, string surname, int height, double weight)
+        {
+            this.nome = name;
+            this.cognome = surname;
+            this.altezza = height;
+            this.peso = weight;
+
+        }
+
+        public double calculateBMI()
+        {
+            double heightInMeters = (double)this.altezza / 100;
+            Console.WriteLine(heightInMeters);
+            double bMI = this.peso / (heightInMeters * heightInMeters);
+
+            return bMI;
         }
 
     }
