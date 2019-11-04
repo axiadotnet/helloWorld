@@ -6,16 +6,16 @@ namespace HelloWorld.Model
 {
     class Person
     {
-        public string nome;
-        public string cognome;
+        public string name;
+        public string surname;
         public int eta;
         public string sesso;
         public int altezza;
         public double peso;
         public Person(string nome, string cognome)
         {
-            this.nome = nome;
-            this.cognome = cognome;
+            this.name = nome;
+            this.surname = cognome;
             this.sesso = "sconosciuto";
         }
 
@@ -25,14 +25,25 @@ namespace HelloWorld.Model
 
         public string Anagrafica()
         {
-            string anagrafica = this.nome + " " + this.cognome + " ha il BMI del valore: " + calculateBMI();
+            string anagrafica;
+            
+            if (calculateBMI() < 0)
+            {
+                anagrafica = this.name + " " + this.surname + " non ha il bmi" ;
 
+            }
+            else
+            {
+                anagrafica = this.name + " " + this.surname + " ha il BMI del valore: " + calculateBMI();
+
+                return anagrafica;
+            }
             return anagrafica;
         }
         public Person(string name, string surname, int height, double weight)
         {
-            this.nome = name;
-            this.cognome = surname;
+            this.name = name;
+            this.surname = surname;
             this.altezza = height;
             this.peso = weight;
 
@@ -40,11 +51,19 @@ namespace HelloWorld.Model
 
         public double calculateBMI()
         {
-            double heightInMeters = (double)this.altezza / 100;
-            Console.WriteLine(heightInMeters);
-            double bMI = this.peso / (heightInMeters * heightInMeters);
+            if (altezza>0 && peso>0)
+            {
+                double heightInMeters = (double)this.altezza / 100;
+  
+                double bMI = this.peso / (heightInMeters * heightInMeters);
+                return bMI;
+            } else
+            {
+                return -1;
+            }
+            
 
-            return bMI;
+            
         }
 
     }

@@ -60,7 +60,7 @@ namespace HelloWorld
 
             Person giovanni = luca;
 
-            giovanni.nome = "Giovanni";
+            giovanni.name = "Giovanni";
 
             Console.WriteLine(luca.Anagrafica());
             Console.WriteLine(giovanni.Anagrafica());
